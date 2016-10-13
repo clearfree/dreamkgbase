@@ -12,7 +12,15 @@ RUN wget --quiet \
     -O ~/miniconda.sh && \
     /bin/bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh
+ENV PATH /opt/conda/bin:$PATH
 
+# take a first pass at creating the environment, but without the code repos
+COPY environment.yml /home/
+
+RUN echo 'creating conda env' && \
+    cd /home && conda env create --name dreamkg_docker --force
+
+# Insert useful scripts, and timestamp the build
 COPY scripts /scripts
 RUN date > created
 
