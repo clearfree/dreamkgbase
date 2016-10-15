@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 echo "base built at..."
-cat created
+cat created_base.txt
