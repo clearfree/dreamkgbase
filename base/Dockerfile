@@ -24,5 +24,5 @@ RUN echo 'creating conda env' && \
 COPY scripts /scripts
 RUN date > created
 
-ENTRYPOINT ["bin/bash"]
+ENTRYPOINT ["/bin/bash", "-c"]
 CMD ["scripts/ident.sh"]
