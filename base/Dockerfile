@@ -24,4 +24,4 @@ COPY scripts /scripts
 RUN date > /created_base.txt
 
 ENTRYPOINT ["/bin/bash", "-c"]
-CMD ["scripts/ident.sh"]
+CMD ["/scripts/ident.sh"]
