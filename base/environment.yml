@@ -84,3 +84,5 @@ dependencies:
   - pydicom==0.9.9
   - tabulate==0.7.5
   - theano==0.8.2
+  - "--editable=git+https://github.com/Lasagne/Lasagne.git@61b1ad1#egg=Lasagne==0.2.git"
+  - "--editable=git+https://github.com/ottogroup/palladium.git@develop#egg=palladium==1.0.2.a.git"
