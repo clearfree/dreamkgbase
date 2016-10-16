@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM topiaruss/nvidia-ub1404cuda80:8.0-devel-cudnn5
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
@@ -27,8 +27,8 @@ RUN echo 'create conda env, clean' && \
 # Insert useful scripts, and timestamp the build
 COPY scripts /scripts
 
-RUN echo "base created " > /created_base.txt && \
-    date >> /created_base.txt
+RUN echo "gpu base created " > /created_gpubase.txt && \
+    date >> /created_gpubase.txt
 
 ENTRYPOINT ["/bin/bash", "-c"]
 CMD ["/scripts/ident.sh"]
