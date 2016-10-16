@@ -6,7 +6,9 @@ RUN apt-get update --fix-missing && \
     apt-get install -y \
     wget bzip2 ca-certificates \
     libfreeimage3 libfreeimage-dev \
-    libglib2.0-0 libxext6 libsm6 libxrender1 git gcc
+    libglib2.0-0 libxext6 libsm6 libxrender1 git gcc && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/
 
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh
 RUN wget --quiet \
@@ -18,8 +20,9 @@ ENV PATH /opt/conda/bin:$PATH
 
 COPY environment.yml /home/
 
-RUN echo 'creating conda env' && \
-    cd /home && conda env create --name dreamkg_docker --force
+RUN echo 'create conda env, clean' && \
+    cd /home && conda env create --name dreamkg_docker --force && \
+    conda clean -ay
 
 # Insert useful scripts, and timestamp the build
 COPY scripts /scripts
