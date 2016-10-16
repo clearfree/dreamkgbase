@@ -3,7 +3,9 @@ FROM ubuntu:14.04
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 RUN apt-get update --fix-missing && \
-    apt-get install -y wget bzip2 ca-certificates \
+    apt-get install -y \
+    wget bzip2 ca-certificates \
+    libfreeimage3 libfreeimage-dev \
     libglib2.0-0 libxext6 libsm6 libxrender1 git gcc
 
 RUN echo 'export PATH=/opt/conda/bin:$PATH' > /etc/profile.d/conda.sh
