@@ -21,8 +21,11 @@ ENV PATH /opt/conda/bin:$PATH
 COPY environment.yml /home/
 
 RUN echo 'create conda env, clean' && \
-    cd /home && conda env create --name dreamkg_docker --force && \
-    conda clean -ay
+    cd /home && conda env create --name dreamkg_docker --force
+
+# I think conda clean was removing pytest related components.
+# && \
+# conda clean -ay
 
 # Insert useful scripts, and timestamp the build
 COPY scripts /scripts
