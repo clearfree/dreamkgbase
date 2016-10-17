@@ -1,4 +1,5 @@
-FROM topiaruss/nvidia-ub1404cuda80:8.0-devel-cudnn5
+#FROM topiaruss/nvidia-ub1404cuda80:8.0-devel-cudnn5
+FROM nvidia/cuda:8.0-cudnn5-devel
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
