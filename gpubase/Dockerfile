@@ -1,13 +1,14 @@
 #FROM topiaruss/nvidia-ub1404cuda80:8.0-devel-cudnn5
 #FROM nvidia/cuda:8.0-cudnn5-devel
-FROM nvidia/cuda:7.5-cudnn5-devel
+#FROM nvidia/cuda:7.5-cudnn5-devel
+FROM nvidia/cuda:9.1-devel-ubuntu18.04
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 RUN apt-get update --fix-missing && \
     apt-get install -y \
     bzip2 ca-certificates gcc git libfreeimage-dev libfreeimage3 \
-    libglib2.0-0 libsm6 libxext6 libxrender1 wget && \
+    libglib2.0-0 libsm6 libxext6 libxrender1 vim wget && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/
 
