@@ -26,7 +26,7 @@ RUN echo 'create conda env, clean' && \
     cd /home && conda env create --name dreamkg_docker --force
 
 # may want to integrate these into the environment.yml. Currently they use pytorch channel
-RUN conda install --name dreamkg_docker pytorch torchvision -c pytorch
+RUN conda install -y --name dreamkg_docker pytorch torchvision -c pytorch
 
 
 # Insert useful scripts, and timestamp the build
