@@ -1,7 +1,7 @@
 #FROM topiaruss/nvidia-ub1404cuda80:8.0-devel-cudnn5
 #FROM nvidia/cuda:8.0-cudnn5-devel
 #FROM nvidia/cuda:7.5-cudnn5-devel
-FROM nvidia/cuda:9.1-devel-ubuntu18.04
+FROM nvidia/cuda:9.2-devel-ubuntu18.04 
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 
@@ -24,6 +24,10 @@ COPY environment.yml /home/
 
 RUN echo 'create conda env, clean' && \
     cd /home && conda env create --name dreamkg_docker --force
+
+# may want to integrate these into the environment.yml. Currently they use pytorch channel
+RUN conda install --name dreamkg_docker pytorch torchvision -c pytorch
+
 
 # Insert useful scripts, and timestamp the build
 COPY scripts /scripts
